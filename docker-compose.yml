@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  graphdb:
+    build:
+      context: .
+      args:
+        GRAPHDB_ZIP: graphdb-free-9.10.1.zip
+    image: graphdb-server
+    restart: always
+    environment:
+      GDB_HEAP_SIZE: 4g
+    ports:
+      - "7200:7200"
+    volumes:
+      - ./import:/root/graphdb-import
