@@ -4,11 +4,11 @@ services:
     build:
       context: .
       args:
-        GRAPHDB_ZIP: graphdb-free-9.10.1.zip
+        GRAPHDB_ZIP: ${GRAPHDB_ZIP}
     image: graphdb-server
     restart: always
     environment:
-      GDB_HEAP_SIZE: 4g
+      GDB_HEAP_SIZE: ${GDB_HEAP_SIZE}
     ports:
       - "7200:7200"
     volumes:
